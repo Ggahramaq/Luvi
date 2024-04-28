@@ -1,0 +1,6 @@
+{
+    "token": "TOKEN",
+    "mongoURL": "MongoDB link",
+    "Welcomelogschannel": "ID",
+    "Goodbyelogschannel": "ID"
+}
