@@ -23,13 +23,14 @@ module.exports = {
     let user;
     const userId = interaction.user.id;
     const member =interaction.options?.get('member');
+    const targetUserId = member.user.id;
 
-    user = await User.findOne({ guildId, userId});
+    user = await User.findOne({ guildId: guildId, userId: targetUserId});
 
     try{
 
         await User.findOneAndUpdate(
-            {guildId, userId},{level: 1, xp:0},{upsert:true, new:true}
+            {guildId: guildId, userId: targetUserId},{level: 1, xp:0},{upsert:true, new:true}
         ).then(() => interaction.editReply({ content: `Успешно сбросили ранг ${member.user.username}`}))
     } catch (e) {
         console.log(e)
